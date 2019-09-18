@@ -5,22 +5,22 @@ import {BrowserRouter} from "react-router-dom";
 import Employee from "./Employee";
 
 
-const EmployeeList = () => {
+const EmployeesList = (props) => {
 
-  const [employees, setEmployees] = useState([]);
+  // const [employees, setEmployees] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('');
 
   useEffect( () => {
-    getEmployees();
+    props.fetchEmployees();
   }, [search]);
 
-  const getEmployees = async () => {
-    //  http://portfolio-api-dev.amalgama.co/1/employees
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
-    const data = await response.json();
-    setEmployees( data );
-  };
+  // const getEmployees = async () => {
+  //   //  http://portfolio-api-dev.amalgama.co/1/employees
+  //   const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  //   const data = await response.json();
+  //   setEmployees( data );
+  // };
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -36,13 +36,13 @@ const EmployeeList = () => {
       return (
           <div className="ui equal width grid">
             {
-              employees.map( (employee) => (
+              props.employees.map( (employee) => (
                   <Employee employee={employee} key={employee.id} />
               ))}
           </div>
       );
     } else {
-        const filteredEmployees = employees.filter( (employee) => {return employee.name.toLowerCase().includes(query.toLowerCase());
+        const filteredEmployees = props.employees.filter( (employee) => {return employee.name.toLowerCase().includes(query.toLowerCase());
           });
         return (
           <div className="ui equal width grid">
@@ -56,7 +56,6 @@ const EmployeeList = () => {
 
   return (
       <div className="">
-        <BrowserRouter>
           <form onSubmit={getSearch} className="ui segment">
             <div className="ui search">
               <label>Search</label>
@@ -65,10 +64,17 @@ const EmployeeList = () => {
           </form>
           <div className="ui divider"/>
           {renderEmployees()}
-        </BrowserRouter>
       </div>
 
   );
+};
+const mapStateToProps = (state) => {
+  return {
+      employees: Object.values(state.employees)
+  };
 }
 
-export default EmployeeList;
+export default connect(
+    mapStateToProps,
+    {fetchEmployees}
+)(EmployeesList);

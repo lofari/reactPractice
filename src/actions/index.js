@@ -1,3 +1,4 @@
+import api from '../api/api'
 import {
   FETCH_EMPLOYEE,
   FETCH_EMPLOYEES,
@@ -6,7 +7,7 @@ import {
 } from "./types";
 
 export const fetchEmployees = () => async dispatch => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users/employees");
+  const response = await api.get("/users");
   dispatch({ type: FETCH_EMPLOYEES, payload: response.data });
 };
 
