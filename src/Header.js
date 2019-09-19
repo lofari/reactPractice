@@ -5,12 +5,9 @@ const Header = () => {
   return (
       <div className="ui secondary pointing menu">
         <Link to="/" className="item active">
-          Portfolio
+          All Users
         </Link>
-        <Link to="/employee/detail" className="item">
-          All Projects
-        </Link>
-        <Link to="/projects" className="item">
+        <Link to="/projects" className="item active">
           All Projects
         </Link>
       </div>

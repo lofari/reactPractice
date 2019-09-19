@@ -11,13 +11,12 @@ export const fetchEmployees = () => async dispatch => {
   dispatch({ type: FETCH_EMPLOYEES, payload: response.data });
 };
 
-export const selectEmployee = id => async dispatch => {
-  const response = await fetch(`/employee/${id}`);
-  dispatch({ type: FETCH_EMPLOYEE, payload: response.data });
+export const selectEmployee = employee => async dispatch => {
+  dispatch({ type: FETCH_EMPLOYEE, payload: employee });
 };
 
 export const fetchProjects = () => async dispatch => {
-  const response = await fetch("/projects");
+  const response = await api.get("/albums");
   dispatch({ type: FETCH_PROJECTS, payload: response.data });
 };
 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import { fetchEmployees } from "../actions";
-import {BrowserRouter} from "react-router-dom";
 import Employee from "./Employee";
 
 
@@ -62,6 +61,7 @@ const EmployeesList = (props) => {
               <input className="prompt" type="text" value={search} onChange={updateSearch}/>
             </div>
           </form>
+          <h3>Users</h3>
           <div className="ui divider"/>
           {renderEmployees()}
       </div>
@@ -70,7 +70,7 @@ const EmployeesList = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-      employees: Object.values(state.employees)
+      employees: Object.values(state.employeesReducer.employees)
   };
 }
 
