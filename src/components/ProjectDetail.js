@@ -5,10 +5,12 @@ import placeHolder from "../images/Untitledplaceholder.png";
 import cardImage from "../images/7ath3mib77j31.jpg";
 
 const ProjectDetail = (props) => {
+
   useEffect( () => {
     props.selectProject(props.match.params.id);
     console.log(props.match.params.id);
   }, []);
+
   console.log(props.project);
   if (!props.project) {
     return (

@@ -7,8 +7,12 @@ import {
 } from "./types";
 
 export const fetchEmployees = () => async dispatch => {
-  const response = await api.get("/users");
-  dispatch({ type: FETCH_EMPLOYEES, payload: response.data });
+  try {
+    const response = await api.get("/users");
+    dispatch({ type: FETCH_EMPLOYEES, payload: response.data });
+  } catch {
+    alert("error")
+  }
 };
 
 export const selectEmployee = employee => async dispatch => {

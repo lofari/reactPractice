@@ -15,7 +15,7 @@ const App = () => {
           <Route path="/" exact component={EmployeesList} />
           <Route path="/employee/:id" component={EmployeeDetail} />
           <Route path="/projects" component={ProjectsList} />
-          <Route path="/project/" component={ProjectDetail} />
+          <Route path="/project/:id" component={ProjectDetail} />
         </BrowserRouter>
       </div>
    );
