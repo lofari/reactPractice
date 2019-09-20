@@ -43,7 +43,11 @@ const EmployeesList = (props) => {
     } else {
         const filteredEmployees = props.employees.filter( (employee) => {return employee.name.toLowerCase().includes(query.toLowerCase());
           });
+        if ( filteredEmployees.length <= 0 ) {
+          return (<div>No encontramos resultados</div>);
+        }
         return (
+
           <div className="ui equal width grid">
               {filteredEmployees.map( (employee) => (
                   <Employee employee={employee} key={employee.id} />
@@ -57,8 +61,8 @@ const EmployeesList = (props) => {
       <div className="">
           <form onSubmit={getSearch} className="ui segment">
             <div className="ui search">
-              <label>Search</label>
-              <input className="prompt" type="text" value={search} onChange={updateSearch}/>
+              <i className="search icon"></i>
+              <input style={{ marginLeft: '5px'}} className="prompt" type="text" value={search} onChange={updateSearch}/>
             </div>
           </form>
           <h3>Users</h3>

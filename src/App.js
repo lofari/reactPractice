@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from "./Header";
+import Header from "./components/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import EmployeesList from "./components/EmployeesList";
 import EmployeeDetail from "./components/EmployeeDetail";

@@ -47,13 +47,13 @@ const EmployeeDetail = (props) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     employees: state.employeesReducer.employees,
     employee: state.employeesReducer.employee
     // ownProps.match.params.id
   };
-}
+};
 
 
 export default connect(

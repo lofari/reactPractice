@@ -30,7 +30,6 @@ const ProjectsList = (props) => {
               <div className="ui active dimmer">
                 <div className="ui massive text loader">Loading</div>
               </div>
-              <p></p>
             </div>
         );
       }
@@ -46,6 +45,9 @@ const ProjectsList = (props) => {
     } else {
       const filteredProjects = props.projects.filter( (project) => {return project.title.toLowerCase().includes(query.toLowerCase());
       });
+      if ( filteredProjects.length <= 0 ) {
+        return (<div>No encontramos resultados</div>);
+      }
       return (
           <div className="ui equal width grid">
             {filteredProjects.map( (project) => (
@@ -60,8 +62,8 @@ const ProjectsList = (props) => {
       <div className="">
         <form onSubmit={getSearch} className="ui segment">
           <div className="ui search">
-            <label>Search</label>
-            <input className="prompt" type="text" value={search} onChange={updateSearch}/>
+            <i className="search icon"></i>
+            <input style={{ marginLeft: '5px'}} className="prompt" type="text" value={search} onChange={updateSearch}/>
           </div>
         </form>
         <h3>Projects</h3>
@@ -73,7 +75,7 @@ const ProjectsList = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    projects: Object.values(state.projectsReducer)
+    projects: Object.values(state.projectsReducer.projects)
   };
 }
 

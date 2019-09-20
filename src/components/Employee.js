@@ -5,7 +5,7 @@ const Employee = ({ employee: { name, email, username, id }}) => {
   return (
       <Link className="ui item" to={`/employee/${id}`}>
         <div className="ui card" style={{ marginTop: '15px', marginLeft: '55px' }}>
-          <div className="four wide column">
+          <div className="four wide column" >
             <div className="image">
               <img src={cardImage} alt="" style={{ width: '100%' , height: '300px' }}/>
             </div>
