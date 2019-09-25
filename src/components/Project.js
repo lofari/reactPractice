@@ -25,7 +25,7 @@ const Project = ({ project: { userId, id, title }}) => {
         </div>
       </Link>
 
-);
+  );
 }
 
 export default Project;

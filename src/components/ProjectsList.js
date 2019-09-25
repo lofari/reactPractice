@@ -75,7 +75,7 @@ const ProjectsList = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-    projects: Object.values(state.projectsReducer.projects)
+    projects: state.projectsReducer.projects
   };
 }
 

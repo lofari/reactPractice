@@ -74,7 +74,7 @@ const EmployeesList = (props) => {
 };
 const mapStateToProps = (state) => {
   return {
-      employees: Object.values(state.employeesReducer.employees)
+      employees: state.employeesReducer.employees
   };
 }
 

@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {selectProject} from "../actions";
 import placeHolder from "../images/Untitledplaceholder.png";
 import cardImage from "../images/7ath3mib77j31.jpg";
+import {getProject} from "../selectors/selectedProject";
 
 const ProjectDetail = (props) => {
 
@@ -49,7 +50,7 @@ const ProjectDetail = (props) => {
 const mapStateToProps = (state) => {
   return {
     projects: state.projectsReducer.projects,
-    project: state.projectsReducer.project
+    project: getProject(state)
     // ownProps.match.params.id
   };
 }

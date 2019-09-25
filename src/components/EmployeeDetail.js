@@ -3,8 +3,10 @@ import {connect} from "react-redux";
 import {selectEmployee} from "../actions";
 import cardImage from '../images/7ath3mib77j31.jpg'
 import placeHolder from '../images/Untitledplaceholder.png'
-
+import { getEmployee } from "../selectors/selectedEmployee";
 const EmployeeDetail = (props) => {
+
+
   useEffect( () => {
     props.selectEmployee(props.match.params.id);
     console.log(props.match.params.id);
@@ -50,7 +52,7 @@ const EmployeeDetail = (props) => {
 const mapStateToProps = (state) => {
   return {
     employees: state.employeesReducer.employees,
-    employee: state.employeesReducer.employee
+    employee: getEmployee(state)
     // ownProps.match.params.id
   };
 };

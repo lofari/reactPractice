@@ -5,11 +5,14 @@ import {
   FETCH_PROJECT,
   FETCH_PROJECTS
 } from "./types";
+import { createSelector } from 'reselect';
+import _ from "lodash";
 
 export const fetchEmployees = () => async dispatch => {
   try {
     const response = await api.get("/users");
-    dispatch({ type: FETCH_EMPLOYEES, payload: response.data });
+    const employees = Object.values(_.mapKeys(response.data, "id"))
+    dispatch({ type: FETCH_EMPLOYEES, payload: employees });
   } catch {
     alert("error")
   }
