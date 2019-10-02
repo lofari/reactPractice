@@ -6,6 +6,6 @@ export class Employee {
     this.id = id;
   }
   static fromJSON(json) {
-    new Employee(json.name, json.email, json.username, json.id);
+    return new Employee(json.name, json.email, json.username, json.id);
   }
 }

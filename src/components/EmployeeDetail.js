@@ -40,12 +40,12 @@ const EmployeeDetail = props => {
           <div className="header">Name: {props.employee.name}</div>
           <div className="description"> Email: {props.employee.email}</div>
           <div className="description">
-            Phone number: {props.employee.phone}
+            {/*Phone number: {props.employee.phone}*/}
           </div>
           <div className="description">
-            Working at: {props.employee.company.name}
+            {/*Working at: {props.employee.company.name}*/}
           </div>
-          <div className="extra">Website: {props.employee.website}</div>
+          {/*<div className="extra">Website: {props.employee.website}</div>*/}
         </div>
       </div>
     </div>

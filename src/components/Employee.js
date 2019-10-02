@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import cardImage from "../images/7ath3mib77j31.jpg";
 import PropTypes from "prop-types";

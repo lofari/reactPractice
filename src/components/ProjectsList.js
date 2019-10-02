@@ -85,7 +85,7 @@ const mapStateToProps = state => {
 };
 
 ProjectsList.propTypes = {
-  project: PropTypes.object.isRequired,
+  project: PropTypes.object,
   action: PropTypes.func
 };
 

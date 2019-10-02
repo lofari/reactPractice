@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import employeesReducer from './employeesReducer';
+import employeesReducer from "./employeesReducer";
 import projectsReducer from "./projectsReducer";
-export default combineReducers ({
+export default combineReducers({
   employeesReducer,
   projectsReducer
 });

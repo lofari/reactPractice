@@ -3,22 +3,24 @@ import { connect } from "react-redux";
 import { fetchEmployees } from "../actions";
 import { getEmployees } from "../selectors/employeesSelector";
 import Employee from "./Employee";
+import "../EmployeeStyle.css";
 
 const EmployeesList = props => {
-  // const [employees, setEmployees] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
+  const [didMount, setDidMount] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      setTimeout(() => {
+        setDidMount(true);
+      }, 0);
+    };
+  }, []);
 
   useEffect(() => {
     props.fetchEmployees();
   }, [search]);
-
-  // const getEmployees = async () => {
-  //   //  http://portfolio-api-dev.amalgama.co/1/employees
-  //   const response = await fetch('https://jsonplaceholder.typicode.com/users');
-  //   const data = await response.json();
-  //   setEmployees( data );
-  // };
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -32,9 +34,13 @@ const EmployeesList = props => {
   const renderEmployees = () => {
     if (query === "") {
       return (
-        <div className="ui equal width grid">
+        <div className={`ui equal width grid`}>
           {props.employees.map(employee => (
-            <Employee employee={employee} key={employee.id} />
+            <Employee
+              className={`fade-in ${didMount && "visible"} `}
+              employee={employee}
+              key={employee.id}
+            />
           ))}
         </div>
       );
